@@ -1,1 +1,1 @@
-# test_lib
+# Algorithmic Trading Operation Manager

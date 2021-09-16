@@ -2,8 +2,8 @@ include(CTest)
 
 # find package Foo (example library)
 find_package(GTest REQUIRED)
-
-add_executable(atom_test bar.cpp bar_test.cpp)
+file(GLOB_RECURSE CPP_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
+add_executable(atom_test ${CPP_FILES})
 
 target_link_libraries(atom_test PRIVATE 
     Atom::atom     
@@ -16,7 +16,7 @@ add_test(
     COMMAND $<TARGET_FILE:atom_test>
 )
 
-install(
-  TARGETS atom_test
-  RUNTIME DESTINATION bin
-)
+# install(
+#   TARGETS atom_test
+#   RUNTIME DESTINATION bin
+# )
