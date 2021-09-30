@@ -1,13 +1,15 @@
 #ifndef ATOM_EVENT_TICK_EVENT_HPP
 #define ATOM_EVENT_TICK_EVENT_HPP
 
+#include "atom/event/event_expr.hpp"
+
 namespace atom::event::detail {
 
-    class TickEvent
+    class TickEvent: public event<TickEvent>
     {
     public:
-        auto show() {
-            return 1;
+        auto show() const {
+            return 11111111;
         }
     };
 
