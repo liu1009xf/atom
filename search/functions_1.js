@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['tickdata_0',['TickData',['../classatom_1_1component_1_1_tick_data.html#ad8ad910e5cba52bd6d5c0464399c9b93',1,'atom::component::TickData::TickData()=default'],['../classatom_1_1component_1_1_tick_data.html#a57410915dde1e3e74bb3658c8ecd28bd',1,'atom::component::TickData::TickData(const std::string &amp;datetime, const std::string &amp;format, std::map&lt; std::string, T &gt; data)'],['../classatom_1_1component_1_1_tick_data.html#a87f39c30d5400803b83a85f05e9ac7dd',1,'atom::component::TickData::TickData(const std::string &amp;datetime, std::map&lt; std::string, T &gt; data)'],['../classatom_1_1component_1_1_tick_data.html#ae69cdedf26ebbad41e9f55ac1f3418cf',1,'atom::component::TickData::TickData(const atom::util::timePoint &amp;datetime, std::map&lt; std::string, T &gt; data)']]]
+];
