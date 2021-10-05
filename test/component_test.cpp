@@ -12,7 +12,7 @@ TEST(Component, tick_data) {
         "%Y-%m-%d %T %z",
         dd
     );
-    EXPECT_EQ(atom::util::timepoint2Str(td.getTime()),
+    EXPECT_EQ(atom::util::timepoint2Str(td.getDatetime()),
         "2014-09-21 12:35:34.113000 +0000");
     EXPECT_EQ(td.getData("bid"), 101.2);
     EXPECT_EQ(td.getData("ask"), 101.3);
