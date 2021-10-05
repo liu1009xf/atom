@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Atom: atom::base::notify_feed&lt; E &gt; Struct Template Reference</title>
+<title>Atom: atom::component::TickData&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,32 +62,37 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>base</b></li><li class="navelem"><a class="el" href="structatom_1_1base_1_1notify__feed.html">notify_feed</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>component</b></li><li class="navelem"><a class="el" href="classatom_1_1component_1_1_tick_data.html">TickData</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="structatom_1_1base_1_1notify__feed-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">atom::base::notify_feed&lt; E &gt; Struct Template Reference</div></div>
+<a href="classatom_1_1component_1_1_tick_data-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">atom::component::TickData&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c52b2cfc42ad71514e196f98eda88f0"><td class="memItemLeft" align="right" valign="top"><a id="a5c52b2cfc42ad71514e196f98eda88f0" name="a5c52b2cfc42ad71514e196f98eda88f0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>notify_feed</b> (const E &amp;event)</td></tr>
-<tr class="separator:a5c52b2cfc42ad71514e196f98eda88f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0616998676a8461df61d9b8e5d3ece4f"><td class="memTemplParams" colspan="2"><a id="a0616998676a8461df61d9b8e5d3ece4f" name="a0616998676a8461df61d9b8e5d3ece4f"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a0616998676a8461df61d9b8e5d3ece4f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (const T &amp;)</td></tr>
-<tr class="separator:a0616998676a8461df61d9b8e5d3ece4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e40342230812c624011cfb75c2c41c9"><td class="memItemLeft" align="right" valign="top"><a id="a0e40342230812c624011cfb75c2c41c9" name="a0e40342230812c624011cfb75c2c41c9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const <a class="el" href="classatom_1_1agent_1_1_trader.html">atom::agent::Trader</a> &amp;trader)</td></tr>
-<tr class="separator:a0e40342230812c624011cfb75c2c41c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795eb653d0ea6736ce49c02167972a00"><td class="memItemLeft" align="right" valign="top"><a id="a795eb653d0ea6736ce49c02167972a00" name="a795eb653d0ea6736ce49c02167972a00"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TickData</b> (const std::string &amp;datetime, const std::string &amp;dateformat, std::map&lt; std::string, T &gt; data)</td></tr>
+<tr class="separator:a795eb653d0ea6736ce49c02167972a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56acba40efcf2ae52151b291b687a4d8"><td class="memItemLeft" align="right" valign="top"><a id="a56acba40efcf2ae52151b291b687a4d8" name="a56acba40efcf2ae52151b291b687a4d8"></a>
+const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTime</b> () const</td></tr>
+<tr class="separator:a56acba40efcf2ae52151b291b687a4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed9a9a85f0a66f59ea8de121de89a8d8"><td class="memItemLeft" align="right" valign="top"><a id="aed9a9a85f0a66f59ea8de121de89a8d8" name="aed9a9a85f0a66f59ea8de121de89a8d8"></a>
+const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> () const</td></tr>
+<tr class="separator:aed9a9a85f0a66f59ea8de121de89a8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84fe75151e9e04e8f94ceb16406b9f22"><td class="memItemLeft" align="right" valign="top"><a id="a84fe75151e9e04e8f94ceb16406b9f22" name="a84fe75151e9e04e8f94ceb16406b9f22"></a>
+const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> (std::string key) const</td></tr>
+<tr class="separator:a84fe75151e9e04e8f94ceb16406b9f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51e46bb097b821176a8acec775cb590a"><td class="memItemLeft" align="right" valign="top"><a id="a51e46bb097b821176a8acec775cb590a" name="a51e46bb097b821176a8acec775cb590a"></a>
+const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getKeys</b> () const</td></tr>
+<tr class="separator:a51e46bb097b821176a8acec775cb590a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>atom/basic/variant/<a class="el" href="observer_8hpp_source.html">observer.hpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>atom/component/data/<a class="el" href="tick__data_8hpp_source.html">tick_data.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
