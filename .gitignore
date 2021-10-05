@@ -34,6 +34,9 @@
 # vscode
 .vscode
 
+# mac
+.DS_Store
+
 # build and install
 _build
 _install
