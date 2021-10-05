@@ -9,7 +9,7 @@
 
 #include <date/date.h>
 
-namespace atom::util::tp::detail
+namespace atom::util
 {
     using timePoint = date::sys_time<std::chrono::microseconds>;
 
@@ -28,6 +28,6 @@ namespace atom::util::tp::detail
     {
         return date::format("%F %T %z", std::forward<TP_T>(tp));
     }
-} // namespace atom::util::tp::detail
+} // namespace atom::util
 
 #endif //!ATOM_UTIL_DATETIME_TIMEPOINT_HPP

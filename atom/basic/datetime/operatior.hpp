@@ -3,7 +3,7 @@
 
 #include <chrono>
 
-namespace atom::util::tp::detail
+namespace atom::util
 {
     template<typename T>
     struct get_time_now;

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <iostream>
-#include <atom/foo.h>
+#include <atom/atom.hpp>
 
 
 #include <vector>
