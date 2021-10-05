@@ -1,6 +1,9 @@
 name: Unit Test
 
-on: [push]
+on: 
+  push:
+  pull_request:
+    branches: [ main ]
 
 env:
   BUILD_TYPE: Release
