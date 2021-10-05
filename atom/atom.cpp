@@ -1,4 +1,3 @@
-#include <iostream>
 #include <atom/atom.hpp>
 
 /** @file
@@ -14,14 +13,12 @@
   */
 namespace atom
 {
-    void atom_print_version(void)
+    std::string atom_version()
     {
         #if (ATOM_DEBUG)
-                const char* m = "Debug";
+        return std::string(ATOM_VERSION) + " Debug";
         #else
-                const char* m = "Not debug";
+        return std::string(ATOM_VERSION) + " Release";
         #endif
-
-        std::cout << "This is foo version " << ATOM_VERSION << " " << m << std::endl;
     }
 }
