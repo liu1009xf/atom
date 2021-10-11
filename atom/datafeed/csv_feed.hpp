@@ -10,35 +10,47 @@
 
 namespace atom::datafeed
 {
-    template<typename V=double>
     class CSVGeneralFeed {
     public:
         using value_type = V;
     public:
-        CSVGeneralFeed(const Observers) {
+        CSVGeneralFeed(const Observers)
+        {
             
         }
 
-        void feed(const contract& contract, std::string_view filePath, std::string_view ) const {
-            csv::CSVReader reader(filePath);
-            auto ks = reader.get_col_names();
-            for (auto& row : reader) { // Input iterator
-                std::map<std::string, V> mp;
-                for (std::string_view k : ks)
-                {
-                    for (auto& o : observers_)
-                        atom::component::TickData()
-                        if (contract == atom::variant::get_contract(o))
-                        {
-                            atom::variant::notify(o, )
-                        }
-                }
-                    std::cout << row["date"].get<std::string>() << ","
-                    
-            }
+        template<typename V>
+        void feed(const contract& contract,
+            std::string_view filePath,
+            std::string_view format) const
+        {
+            feed_impl
         }
     private:
         std::vector<Observer> observers_;
+
+        void feed_impl(const contract& contract,
+            std::string_view filePath,
+            std::string_view dtFormat) const
+        {
+            csv::CSVReader reader(filePath);
+            auto ks = reader.get_col_names();
+            for (auto& row : reader) { // Input iterator
+                std::map<std::string, value_type> mp;
+                for (auto i = 1;i<ks.size();++i)
+                {
+                    mp[k] = row[k].get<value_type>();
+                }
+                atom::component::TickData td(rowp[k[0]].get<>(), dtFormat, mp);
+                for (auto& o : observers_)
+                if (contract == atom::variant::get_symbol(o))
+                {
+                    atom::variant::get_notified(td)(o);
+                }
+                std::cout << row["date"].get<std::string>() << ","
+
+            }
+        }
     }
 } // namespace atom::datafeed
 
