@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['strategybase_0',['StrategyBase',['../classatom_1_1strategy_1_1_strategy_base.html',1,'atom::strategy']]]
+  ['notify_5ffeed_0',['notify_feed',['../structatom_1_1base_1_1notify__feed.html',1,'atom::base']]]
 ];
