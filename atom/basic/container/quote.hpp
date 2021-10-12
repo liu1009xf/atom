@@ -1,9 +1,6 @@
 #ifndef ATOM_BASIC_CONTAINER_QUOTE_HPP
 #define ATOM_BASIC_CONTAINER_QUOTE_HPP
 
-#include <optional>
-#include <type_traits>
-
 namespace atom::basic::detail
 {
     template<typename V, typename Q>
@@ -32,10 +29,12 @@ namespace atom::basic::detail
         template<typename T,
             typename S,
             std::enable_if_t<
-            std::conjunction_v<
-            std::is_same_v<T, V> || std::is_same_v<T, std::nullopt_t>,
-            std::is_same_v<S, V> || std::is_same_v<S, std::nullopt_t>
-            >, std::nullptr_t> = nullptr
+                std::conjunction_v<
+                    std::disjunction_v<std::is_same_v<T, V>, std::is_same_v<T, std::nullopt_t>>,
+                    std::disjunction_v<std::is_same_v<S, V>, std::is_same_v<S, std::nullopt_t>>
+                >,
+                std::nullptr_t
+            > = nullptr
         >
         Quote(T&& bid, S&& ask);
 
