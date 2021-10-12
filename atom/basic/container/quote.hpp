@@ -30,8 +30,8 @@ namespace atom::basic::detail
             typename S,
             std::enable_if_t<
                 std::conjunction_v<
-                    std::disjunction_v<std::is_same_v<T, V>, std::is_same_v<T, std::nullopt_t>>,
-                    std::disjunction_v<std::is_same_v<S, V>, std::is_same_v<S, std::nullopt_t>>
+                    std::disjunction_v<std::is_same<T, V>, std::is_same<T, std::nullopt_t>>,
+                    std::disjunction_v<std::is_same<S, V>, std::is_same<S, std::nullopt_t>>
                 >,
                 std::nullptr_t
             > = nullptr

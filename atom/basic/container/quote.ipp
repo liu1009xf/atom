@@ -6,8 +6,8 @@ template<typename W,
     typename S,
     std::enable_if_t<
     std::conjunction_v<
-        std::disjunction_v<std::is_same_v<W, T>, std::is_same_v<W, std::nullopt_t>>,
-        std::disjunction_v<std::is_same_v<S, T>, std::is_same_v<S, std::nullopt_t>>
+        std::disjunction_v<std::is_same<W, T>, std::is_same<W, std::nullopt_t>>,
+        std::disjunction_v<std::is_same<S, T>, std::is_same<S, std::nullopt_t>>
         >,
         std::nullptr_t
     >
