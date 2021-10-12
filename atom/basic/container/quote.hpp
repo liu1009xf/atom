@@ -1,6 +1,9 @@
 #ifndef ATOM_BASIC_CONTAINER_QUOTE_HPP
 #define ATOM_BASIC_CONTAINER_QUOTE_HPP
 
+#include <optional>
+#include <type_traits>
+
 namespace atom::basic::detail
 {
     template<typename V, typename Q>
@@ -34,7 +37,7 @@ namespace atom::basic::detail
             std::is_same_v<S, V> || std::is_same_v<S, std::nullopt_t>
             >, std::nullptr_t> = nullptr
         >
-            Quote(T&& bid, S&& ask);
+        Quote(T&& bid, S&& ask);
 
         const auto bid() const;
         const auto ask() const;
