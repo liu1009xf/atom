@@ -1,7 +1,4 @@
 template<typename T>
-TwoWayQuote<T>::TwoWayQuote(const T& bid, const T& ask) :bid_(bid), ask_(ask) {};
-
-template<typename T>
 template<typename W,
     typename S,
     std::enable_if_t<
