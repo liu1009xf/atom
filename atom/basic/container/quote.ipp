@@ -5,10 +5,8 @@ template<typename T>
 template<typename W,
     typename S,
     std::enable_if_t<
-    std::conjunction_v<
-        std::disjunction_v<std::is_same<W, T>, std::is_same<W, std::nullopt_t>>,
-        std::disjunction_v<std::is_same<S, T>, std::is_same<S, std::nullopt_t>>
-        >,
+        atom::traits::is_optional_of_v<W, T>&&
+            atom::traits::is_optional_of_v<S, T>,
         std::nullptr_t
     >
 >

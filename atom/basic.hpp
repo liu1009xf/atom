@@ -4,6 +4,8 @@
 #include <optional>
 #include <type_traits>
 
+#include "atom/type_traits.hpp"
+
 #include "atom/basic/container/quote.hpp"
 
 namespace atom {

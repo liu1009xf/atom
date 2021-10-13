@@ -29,10 +29,8 @@ namespace atom::basic::detail
         template<typename T,
             typename S,
             std::enable_if_t<
-                std::conjunction_v<
-                    std::disjunction_v<std::is_same<T, V>, std::is_same<T, std::nullopt_t>>,
-                    std::disjunction_v<std::is_same<S, V>, std::is_same<S, std::nullopt_t>>
-                >,
+                atom::traits::is_optional_of_v<T, V>&&
+                    atom::traits::is_optional_of_v<S, V>,
                 std::nullptr_t
             > = nullptr
         >
