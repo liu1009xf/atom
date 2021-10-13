@@ -107,25 +107,25 @@ TwoWayQuoteBuilder<V, Q>& TwoWayQuoteBuilder<V, Q>::askQty(T&& askQty)
 template<typename V, typename Q>
 TwoWayQuoteBuilder<V, Q>::operator TwoWayQuote<Quote<V, Q>>() const
 {
-    using osd = Quote<V, Q>;
+    using Qt = Quote<V, Q>;
     if (bidPrice_.has_value() && askPrice_.has_value())
     {
         auto bq = bidQty_.has_value() ? bidQty_.value() : static_cast<Q>(0);
         auto aq = askQty_.has_value() ? askQty_.value() : static_cast<Q>(0);
-        return TwoWayQuote<osd>(osd(bidPrice_.value(), bq),
-            osd(askPrice_.value(), aq));
+        return TwoWayQuote<Qt>(Qt(bidPrice_.value(), bq),
+            Qt(askPrice_.value(), aq));
     }
     else if (bidPrice_.has_value())
     {
         auto bq = bidQty_.has_value() ? bidQty_.value() : static_cast<Q>(0);
-        return TwoWayQuote<osd>(Quote(bidPrice_.value(), bq), std::nullopt);
+        return TwoWayQuote<Qt>(Qt(bidPrice_.value(), bq), std::nullopt);
     }
     else if (askPrice_.has_value())
     {
         auto aq = askQty_.has_value() ? askQty_.value() : static_cast<Q>(0);
-        return TwoWayQuote<osd>(std::nullopt, Quote(askPrice_.value(), aq));
+        return TwoWayQuote<Qt>(std::nullopt, Qt(askPrice_.value(), aq));
     }
     else {
-        return TwoWayQuote<osd>(std::nullopt, std::nullopt);
+        return TwoWayQuote<Qt>(std::nullopt, std::nullopt);
     }
 }
