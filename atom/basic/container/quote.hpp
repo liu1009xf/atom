@@ -24,7 +24,6 @@ namespace atom::basic::detail
         using value_type = V;
     public:
         TwoWayQuote() = default;
-        TwoWayQuote(const V& bid, const V& ask);
         template<typename T,
             typename S,
             std::enable_if_t<
