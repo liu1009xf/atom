@@ -19,14 +19,56 @@
 //     EXPECT_EQ(td.getData("bid"), 101.2);
 //     EXPECT_EQ(td.getData("ask"), 101.3);
 // }
-TEST(Basic, QuoteTest)
+TEST(Basic_QuoteTest, Quote)
 {
-    atom::OneSideQuote<double, unsigned long int> bid(100, 100); 
-    atom::OneSideQuote<double, unsigned long int> ask(101, 100);
+    atom::Quote<double, unsigned long int> q(101, 100);
+    EXPECT_EQ(q.value(), 101);
+    EXPECT_EQ(q.qty(), 100);
+}
 
-    atom::Quote<atom::OneSideQuote<double, unsigned long int>> q(bid, ask);
+TEST(Basic_QuoteTest, BidAskExist)
+{
+    atom::Quote<double, unsigned long int> bid(100, 100); 
+    atom::Quote<double, unsigned long int> ask(101, 100);
+
+    atom::TwoWayQuote<atom::Quote<double, unsigned long int>> q(bid, ask);
     EXPECT_EQ(q.ask(), 101);
     EXPECT_EQ(q.bid(), 100);
     EXPECT_EQ(q.askQty(), 100);
     EXPECT_EQ(q.bidQty(), 100);
 }
+
+TEST(Basic_QuoteTest, BidOnly)
+{
+    atom::Quote<double, unsigned long int> bid(100, 100);
+
+    atom::TwoWayQuote<atom::Quote<double, unsigned long int>> q(bid, std::nullopt);
+    EXPECT_EQ(q.bid(), 100);
+    EXPECT_EQ(q.bidQty(), 100);
+    EXPECT_TRUE(q.hasBid());
+    EXPECT_FALSE(q.hasAsk());
+}
+
+TEST(Basic_QuoteTest, AskOnly)
+{
+    atom::Quote<double, unsigned long int> ask(100, 100);
+
+    atom::TwoWayQuote<atom::Quote<double, unsigned long int>> q(std::nullopt, ask);
+    EXPECT_EQ(q.ask(), 100);
+    EXPECT_EQ(q.askQty(), 100);
+    EXPECT_FALSE(q.hasBid());
+    EXPECT_TRUE(q.hasAsk());
+}
+
+TEST(Basic_QuoteBuilderTest, AskOnly)
+{
+    atom::TwoWayQuote<> q = atom::TwoWayQuoteBuilder<>().askPrice(101)
+        .bidPrice(100)
+        .bidQty(1000)
+        .askQty(10000);
+    EXPECT_EQ(q.ask(), 101);
+    EXPECT_EQ(q.bid(), 100);
+    EXPECT_EQ(q.askQty(), 10000);
+    EXPECT_EQ(q.bidQty(), 1000);
+}
+

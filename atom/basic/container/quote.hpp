@@ -4,28 +4,27 @@
 namespace atom::basic::detail
 {
     template<typename V, typename Q>
-    class OneSideQuote {
+    class Quote {
     public:
-        OneSideQuote() = default;
-        OneSideQuote(const V& value, const Q& qty);
-        OneSideQuote(V&& value, Q&& qty);
+        Quote() = default;
+        Quote(const V& value, const Q& qty);
+        Quote(V&& value, Q&& qty);
         
         const auto value() const;
         const auto qty() const;
-        const auto hasQty() const;
         
     private:
         V value_;
-        std::optional<Q> qty_;
+        Q qty_;
     };
     
     template<typename V>
-    class Quote {
+    class TwoWayQuote {
     public:
         using value_type = V;
     public:
-        Quote() = default;
-        Quote(const V& bid, const V& ask);
+        TwoWayQuote() = default;
+        TwoWayQuote(const V& bid, const V& ask);
         template<typename T,
             typename S,
             std::enable_if_t<
@@ -34,16 +33,55 @@ namespace atom::basic::detail
                 std::nullptr_t
             > = nullptr
         >
-        Quote(T&& bid, S&& ask);
+        TwoWayQuote(T&& bid, S&& ask);
 
         const auto bid() const;
         const auto ask() const;
         const auto bidQty() const;
         const auto askQty() const;
+        const auto hasBid() const;
+        const auto hasAsk() const;
 
     private:
         std::optional<V> bid_;
         std::optional<V> ask_;
+    };
+
+    template<typename V, typename Q>
+    class TwoWayQuoteBuilder {
+    public:
+        using value_type = V;
+        using qty_type = Q;
+    public:
+        TwoWayQuoteBuilder() = default;
+        TwoWayQuoteBuilder(const TwoWayQuoteBuilder&) = delete;
+        TwoWayQuoteBuilder(TwoWayQuoteBuilder&&) = delete;
+        TwoWayQuoteBuilder& operator =(const TwoWayQuoteBuilder&) = delete;
+        TwoWayQuoteBuilder& operator =(TwoWayQuoteBuilder&&) = delete;
+
+        operator TwoWayQuote<Quote<V, Q>>() const;
+
+        template<typename T,
+            std::enable_if_t<std::is_convertible_v<T, V>, std::nullptr_t> = nullptr
+        >
+            TwoWayQuoteBuilder& bidPrice(T&&);
+        template<typename T,
+            std::enable_if_t<std::is_convertible_v<T, V>, std::nullptr_t> = nullptr
+        >
+            TwoWayQuoteBuilder& askPrice(T&&);
+        template<typename T,
+            std::enable_if_t<std::is_convertible_v<T, Q>, std::nullptr_t> = nullptr
+        >
+            TwoWayQuoteBuilder& bidQty(T&&);
+        template<typename T,
+            std::enable_if_t<std::is_convertible_v<T, Q>, std::nullptr_t> = nullptr
+        >
+            TwoWayQuoteBuilder& askQty(T&&);
+    private:
+        std::optional<V> bidPrice_;
+        std::optional<V> askPrice_;
+        std::optional<Q> bidQty_;
+        std::optional<Q> askQty_;
     };
 
 #include "atom/basic/container/quote.ipp"

@@ -10,8 +10,11 @@
 
 namespace atom {
     template <typename V = double, typename Q = unsigned long int>
-    using OneSideQuote = basic::detail::OneSideQuote<V, Q>;
-    template <typename V>
-    using Quote = basic::detail::Quote<V>;
+    using Quote = basic::detail::Quote<V, Q>;
+    template <typename V=Quote<double, unsigned long int>>
+    using TwoWayQuote = basic::detail::TwoWayQuote<V>;
+
+    template<typename V = double, typename Q = unsigned long int>
+    using TwoWayQuoteBuilder = basic::detail::TwoWayQuoteBuilder<V, Q>;
 }
 #endif //!ATOM_BASIC_HPP
