@@ -1,4 +1,4 @@
-name: Unit Test on Windows
+name: Unit Test(Windows)
 
 on: 
   push:
@@ -30,14 +30,12 @@ jobs:
       run: conan profile new default --detect
       shell: bash
 
-    - name: Set conan to windows
-      if: runner.os == 'Windows'
+    - name: Set conan
       working-directory: ${{runner.workspace}}/_build
       run: conan profile update settings.compiler="Visual Studio" default
       shell: bash
 
-    - name: Install Test Dependencies Windows
-      if: runner.os == 'Windows'
+    - name: Install Test Dependencies
       working-directory: ${{runner.workspace}}/_build
       run: conan install ../atom/ --build missing
       shell: bash
@@ -48,25 +46,11 @@ jobs:
       run: cmake $GITHUB_WORKSPACE
 
     - name: Build
-      if: runner.os != 'Windows'
-      working-directory: ${{runner.workspace}}/_build
-      shell: bash
-      run: cmake --build . -j 8
-
-    - name: Build Windows
-      if: runner.os == 'Windows'
       working-directory: ${{runner.workspace}}/_build
       shell: bash
       run: cmake --build . --config $BUILD_TYPE -j 8
 
-    - name: CPP Unit Test
-      if: runner.os != 'Windows'
-      working-directory: ${{runner.workspace}}/_build
-      shell: bash
-      run: ctest -R atom_test --verbose --timeout 600
-    
-    - name: CPP Unit Test Windows
-      if: runner.os == 'Windows'
+    - name: Unit Test
       working-directory: ${{runner.workspace}}/_build
       shell: bash
       run: ctest -R atom_test -C $BUILD_TYPE --verbose --timeout 600
