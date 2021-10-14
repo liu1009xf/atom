@@ -8,7 +8,7 @@
 
 #include "atom/basic/variant/observer.hpp"
 #include "atom/engine/feed_engine.hpp"
-#include "atom/agent/trader/trader.hpp"
+#include "atom/trader/trader.hpp"
 #include "atom/basic/variant/contract.hpp"
 
 #include "atom/event.hpp"

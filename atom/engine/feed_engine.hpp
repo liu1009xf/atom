@@ -16,7 +16,7 @@ namespace atom::engine::detail
         using Observer = base::feed_observer;
         using Observers = std::vector<Observer>;
     public:
-        FeedEngine() = delete;
+        FeedEngine() = default;
         FeedEngine(Contract contract) : contract_(contract) {}//instantiate feed engine with some data needed
         FeedEngine(Contract contract, 
             Observers observers) : contract_(contract), observers_(observers) {}

@@ -3,25 +3,26 @@
 
 #include "atom/event/operator.hpp"
 
-namespace atom::base{
-    struct Decision {};
-}
-
 namespace atom::agent
-{   
+{
+    template<typename S>
     class Trader {
     public:
-        
+
+        Trader(const S& strategy) :strategy_(strategy) {};
+
         template<typename T>
         void process(T&& event) const
         {
-            std::cout << "trader processing " << atom::op::eval(event) << std::endl;
+            strategy_.actOn(std::forward<T>(event));
         }
-        
+
+        auto _strategy() const
+        {
+            return strategy_;
+        }            
     private:
-        void trade(atom::base::Decision o) const {
-            
-        }
+        S strategy_;
     };
 } // namespace atom::agent
 

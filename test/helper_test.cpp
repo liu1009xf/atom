@@ -18,7 +18,9 @@ TEST(BasicHelper, CSV) {
     for (auto& row : reader) { // Input iterator
         std::cout<<row["date"].get<std::string>()<<","
             << row["time"].get<std::string>() << ","
-            <<row["bid"].get<double>() << ","
-        <<row["ask"].get<double>()<<std::endl;
+            << row["bid"].get<double>() << ","
+            << row["bid_size"].get<double>() << ","
+            << row["ask"].get<double>() << ","
+            << row["ask_size"].get<double>() << std::endl;
     }
 }

@@ -7,51 +7,58 @@
 #include <csv.hpp>
 
 #include "atom/basic/variant/contract.hpp"
+#include "atom/event.hpp"
+#include "atom/basic.hpp"
 
 namespace atom::datafeed
 {
+
+    template<typename O>
     class CSVGeneralFeed {
     public:
-        using value_type = V;
-    public:
-        CSVGeneralFeed(const Observers)
+        CSVGeneralFeed(const O& Observers) :
         {
-            
+
         }
 
         template<typename V>
-        void feed(const contract& contract,
+        void feed(const V& contract,
             std::string_view filePath,
             std::string_view format) const
         {
-            feed_impl
+            feed_impl(constract, filePath, format);
         }
     private:
-        std::vector<Observer> observers_;
+        O observers_;
 
-        void feed_impl(const contract& contract,
+        template<typename V>
+        void feed_impl(const V& contract,
             std::string_view filePath,
             std::string_view dtFormat) const
         {
             csv::CSVReader reader(filePath);
-            auto ks = reader.get_col_names();
             for (auto& row : reader) { // Input iterator
-                std::map<std::string, value_type> mp;
-                for (auto i = 1;i<ks.size();++i)
+                for (auto i = 1;i < ks.size();++i)
                 {
-                    mp[k] = row[k].get<value_type>();
+                     = 
                 }
-                atom::component::TickData td(rowp[k[0]].get<>(), dtFormat, mp);
+                atom::TwoWayQuoteBuilder<double, int> twqb;
+                using v = decltype(twqb)::value_type;
+                using q = decltype(twqb)::qty_type;
+                auto twq= twqb.bidPrice(row[1].get<v>())
+                            .bidQty(row[2].get<q>())
+                            .askPrice(row[3].get<v>())
+                            .askQty(row[4].get<q>());
+                atom::TickEvent<atom::TwoWayQuoteBuilder<double, int>> t(row[0].get(), twq);
                 for (auto& o : observers_)
-                if (contract == atom::variant::get_symbol(o))
-                {
-                    atom::variant::get_notified(td)(o);
-                }
+                    if (contract == atom::variant::get_symbol(o))
+                    {
+                        atom::variant::get_notified(td)(o);
+                    }
                 std::cout << row["date"].get<std::string>() << ","
-
             }
         }
-    }
+    };
 } // namespace atom::datafeed
 
 

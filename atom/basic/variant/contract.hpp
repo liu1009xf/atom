@@ -4,7 +4,9 @@
 #include <variant>
 namespace atom::variant
 {
-    using contract = std::variant<std::monostate>;
+    using contract = std::variant<std::monostate, std::string>;
+
+    
 } // namespace atom::variant
 
 
