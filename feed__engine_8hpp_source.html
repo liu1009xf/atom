@@ -87,7 +87,7 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">using</span> Observer = base::feed_observer;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keyword">using</span> Observers = std::vector&lt;Observer&gt;;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="classatom_1_1engine_1_1detail_1_1_feed_engine.html">FeedEngine</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="classatom_1_1engine_1_1detail_1_1_feed_engine.html">FeedEngine</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_class" href="classatom_1_1engine_1_1detail_1_1_feed_engine.html">FeedEngine</a>(Contract contract) : contract_(contract) {}<span class="comment">//instantiate feed engine with some data needed</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_class" href="classatom_1_1engine_1_1detail_1_1_feed_engine.html">FeedEngine</a>(Contract contract, </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            Observers observers) : contract_(contract), observers_(observers) {}</div>

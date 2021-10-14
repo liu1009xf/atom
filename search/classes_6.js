@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['is_5foptional_5fof_0',['is_optional_of',['../structatom_1_1traits_1_1detail_1_1is__optional__of.html',1,'atom::traits::detail']]]
+  ['marketorder_0',['MarketOrder',['../classatom_1_1basic_1_1detail_1_1_market_order.html',1,'atom::basic::detail']]],
+  ['my_5fclock_5ft_1',['my_clock_t',['../structatom_1_1util_1_1tp_1_1detail_1_1my__clock__t.html',1,'atom::util::tp::detail']]]
 ];

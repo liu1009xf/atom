@@ -72,19 +72,35 @@ $(function() {
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ATOM_BASIC_MPL_VARIANT_HPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ATOM_BASIC_MPL_VARIANT_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span>atom::mpl</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="structatom_1_1mpl_1_1can__hold.html">    6</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt; <span class="keyword">struct </span><a class="code hl_struct" href="structatom_1_1mpl_1_1can__hold.html">can_hold</a>;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">class</span>... Ts&gt;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structatom_1_1mpl_1_1can__hold_3_01_t_00_01std_1_1variant_3_01_ts_8_8_8_01_4_01_4.html">    9</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structatom_1_1mpl_1_1can__hold.html">can_hold</a>&lt;T, std::variant&lt;Ts...&gt;&gt;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        : std::bool_constant&lt;(std::is_same_v&lt;T, Ts&gt; || ...)&gt;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    { };</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>} <span class="comment">// namespace atom::mpl</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif </span></div>
-<div class="ttc" id="astructatom_1_1mpl_1_1can__hold_html"><div class="ttname"><a href="structatom_1_1mpl_1_1can__hold.html">atom::mpl::can_hold</a></div><div class="ttdef"><b>Definition:</b> variant.hpp:6</div></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;variant&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>atom::mpl</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structatom_1_1mpl_1_1can__hold.html">    9</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt; <span class="keyword">struct </span><a class="code hl_struct" href="structatom_1_1mpl_1_1can__hold.html">can_hold</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">class</span>... Ts&gt;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structatom_1_1mpl_1_1can__hold_3_01_t_00_01std_1_1variant_3_01_ts_8_8_8_01_4_01_4.html">   12</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structatom_1_1mpl_1_1can__hold.html">can_hold</a>&lt;T, std::variant&lt;Ts...&gt;&gt;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        : std::bool_constant&lt;(std::is_same_v&lt;T, Ts&gt; || ...)&gt;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    { };</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">namespace </span>detail{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structatom_1_1mpl_1_1detail_1_1variant__append__helper.html">   17</a></span>        <span class="keyword">template</span> &lt;<span class="keyword">class</span> V, <span class="keyword">class</span> T&gt; <span class="keyword">struct </span><a class="code hl_struct" href="structatom_1_1mpl_1_1detail_1_1variant__append__helper.html">variant_append_helper</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">template</span> &lt;<span class="keyword">class</span>... A, <span class="keyword">class </span>T&gt;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structatom_1_1mpl_1_1detail_1_1variant__append__helper_3_01std_1_1variant_3_01_a_8_8_8_01_4_00_01_t_01_4.html">   20</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structatom_1_1mpl_1_1detail_1_1variant__append__helper.html">variant_append_helper</a>&lt;std::variant&lt;A...&gt;, T&gt; {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keyword">using</span> type = std::variant&lt;A..., T&gt;;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        };</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> V, <span class="keyword">class</span> T&gt;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">using</span> variant_append = <span class="keyword">typename</span> <a class="code hl_struct" href="structatom_1_1mpl_1_1detail_1_1variant__append__helper.html">detail::variant_append_helper&lt;V, T&gt;::type</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>} <span class="comment">// namespace atom::mpl</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif </span></div>
+<div class="ttc" id="astructatom_1_1mpl_1_1can__hold_html"><div class="ttname"><a href="structatom_1_1mpl_1_1can__hold.html">atom::mpl::can_hold</a></div><div class="ttdef"><b>Definition:</b> variant.hpp:9</div></div>
+<div class="ttc" id="astructatom_1_1mpl_1_1detail_1_1variant__append__helper_html"><div class="ttname"><a href="structatom_1_1mpl_1_1detail_1_1variant__append__helper.html">atom::mpl::detail::variant_append_helper</a></div><div class="ttdef"><b>Definition:</b> variant.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
