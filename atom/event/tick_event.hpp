@@ -16,7 +16,7 @@ namespace atom::event::detail
 {
     template<typename T> class event;
     /**
-     * @brief Generalised Tick Data contains time and data of type map<string, T>
+     * @brief Tick Data contains time and data of type map<string, T>
      *
      * Class that contains a timepoint that the data became available, e.g. if data
      * is quote data, then the timepoint is the time tht the quote first became
