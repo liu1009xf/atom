@@ -3,7 +3,7 @@
 
 #include "atom/event/event_expr.hpp"
 
-#include "atom/event/data/tick_event.hpp"
+#include "atom/event/tick_event.hpp"
 
 namespace atom
 {

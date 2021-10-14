@@ -83,47 +83,8 @@ namespace atom::event::detail
     private:
         atom::util::timePoint datetime_;
         T data_;
-        // TODO: Add meta information to tick_event
-        //       for example, which broker is the info from
-        //       -> strategy can favour one broker over another
-        //       because of the commission scheme.
     };
-
-    template<typename V>
-    TickEvent<V>::TickEvent(const std::string& datetime, const std::string& format, const V& data):
-        datetime_(atom::util::str2Timepoint(datetime, format)),
-        data_(data)
-    {
-
-    }
-        
-    template<typename V>
-    TickEvent<V>::TickEvent(const std::string& datetime, const V& data) :
-        datetime_(atom::util::str2Timepoint(datetime, "%Y-%m-%d %T %z")),
-        data_(data)
-    {
-
-    }
-    
-    template<typename V>
-    TickEvent<V>::TickEvent(const atom::util::timePoint& datetime, const V& data) :
-        datetime_(datetime),
-        data_(data)
-    {
-
-    }
-    
-    template<typename V>
-    const auto& TickEvent<V>::datetime() const
-    {
-        return datetime_;
-    }
-
-    template<typename V>
-    const auto& TickEvent<V>::data() const
-    {
-        return data_;
-    }
+    #include "atom/event/impl/tick_event.ipp"
 } // namespace atom::component
 
 #endif //!ATOM_COMPONENT_DATA_TICK_EVENT_HPP
