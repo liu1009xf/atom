@@ -17,4 +17,5 @@ namespace atom {
     template<typename V = double, typename Q = unsigned long int>
     using TwoWayQuoteBuilder = basic::detail::TwoWayQuoteBuilder<V, Q>;
 }
+
 #endif //!ATOM_BASIC_HPP
