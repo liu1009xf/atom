@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Atom: atom::mpl::detail::variant_append_helper&lt; std::variant&lt; A... &gt;, T &gt; Struct Template Reference</title>
+<title>Atom: atom::mpl::detail::variant_cast_proxy&lt; Args &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,22 +62,30 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>mpl</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="structatom_1_1mpl_1_1detail_1_1variant__append__helper_3_01std_1_1variant_3_01_a_8_8_8_01_4_00_01_t_01_4.html">variant_append_helper&lt; std::variant&lt; A... &gt;, T &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>mpl</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="structatom_1_1mpl_1_1detail_1_1variant__cast__proxy.html">variant_cast_proxy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="structatom_1_1mpl_1_1detail_1_1variant__append__helper_3_01std_1_1variant_3_01_a_8_8_8_01_4_00_01_t_01_4-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">atom::mpl::detail::variant_append_helper&lt; std::variant&lt; A... &gt;, T &gt; Struct Template Reference</div></div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="structatom_1_1mpl_1_1detail_1_1variant__cast__proxy-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">atom::mpl::detail::variant_cast_proxy&lt; Args &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ad98893a191112fb619d2daa8294b86ec"><td class="memItemLeft" align="right" valign="top"><a id="ad98893a191112fb619d2daa8294b86ec" name="ad98893a191112fb619d2daa8294b86ec"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> = std::conditional_t&lt; std::disjunction_v&lt; std::is_same&lt; T, A &gt;... &gt;, std::variant&lt; A... &gt;, std::variant&lt; A..., T &gt; &gt;</td></tr>
-<tr class="separator:ad98893a191112fb619d2daa8294b86ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a40765c16150402bb75e7ca49982e6c12"><td class="memTemplParams" colspan="2"><a id="a40765c16150402bb75e7ca49982e6c12" name="a40765c16150402bb75e7ca49982e6c12"></a>
+template&lt;class... ToArgs&gt; </td></tr>
+<tr class="memitem:a40765c16150402bb75e7ca49982e6c12"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator std::variant&lt; ToArgs... &gt;</b> () const</td></tr>
+<tr class="separator:a40765c16150402bb75e7ca49982e6c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aa4f88ed56fc896251897cb23ad24165d"><td class="memItemLeft" align="right" valign="top"><a id="aa4f88ed56fc896251897cb23ad24165d" name="aa4f88ed56fc896251897cb23ad24165d"></a>
+std::variant&lt; Args... &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>v</b></td></tr>
+<tr class="separator:aa4f88ed56fc896251897cb23ad24165d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>atom/basic/mpl/<a class="el" href="variant_8hpp_source.html">variant.hpp</a></li>
