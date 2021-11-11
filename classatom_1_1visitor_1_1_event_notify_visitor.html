@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Atom: atom::engine::detail::FeedEngine Class Reference</title>
+<title>Atom: atom::visitor::EventNotifyVisitor&lt; E &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,35 +62,38 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>engine</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="classatom_1_1engine_1_1detail_1_1_feed_engine.html">FeedEngine</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>visitor</b></li><li class="navelem"><a class="el" href="classatom_1_1visitor_1_1_event_notify_visitor.html">EventNotifyVisitor</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classatom_1_1engine_1_1detail_1_1_feed_engine-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">atom::engine::detail::FeedEngine Class Reference</div></div>
+<a href="classatom_1_1visitor_1_1_event_notify_visitor-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">atom::visitor::EventNotifyVisitor&lt; E &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a091cc0c59426944677100b4fc99006a9"><td class="memItemLeft" align="right" valign="top"><a id="a091cc0c59426944677100b4fc99006a9" name="a091cc0c59426944677100b4fc99006a9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FeedEngine</b> (Contract contract)</td></tr>
-<tr class="separator:a091cc0c59426944677100b4fc99006a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afece5028011500fcf00fb7c70e6b85a7"><td class="memItemLeft" align="right" valign="top"><a id="afece5028011500fcf00fb7c70e6b85a7" name="afece5028011500fcf00fb7c70e6b85a7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FeedEngine</b> (Contract contract, Observers observers)</td></tr>
-<tr class="separator:afece5028011500fcf00fb7c70e6b85a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33478346d5e9b682496cf396b482cb4c"><td class="memItemLeft" align="right" valign="top"><a id="a33478346d5e9b682496cf396b482cb4c" name="a33478346d5e9b682496cf396b482cb4c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addObserver</b> (const Observer &amp;fo)</td></tr>
-<tr class="separator:a33478346d5e9b682496cf396b482cb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac51bc5506ecfbc89f70e98a0a3cc816f"><td class="memTemplParams" colspan="2"><a id="ac51bc5506ecfbc89f70e98a0a3cc816f" name="ac51bc5506ecfbc89f70e98a0a3cc816f"></a>
-template&lt;typename E , std::enable_if_t&lt; atom::event::detail::is_event_v&lt; E &gt;, std::nullptr_t &gt;  = nullptr&gt; </td></tr>
-<tr class="memitem:ac51bc5506ecfbc89f70e98a0a3cc816f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>notify</b> (const E &amp;event) const</td></tr>
-<tr class="separator:ac51bc5506ecfbc89f70e98a0a3cc816f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc70521bf15377d2367f1a0240a6284e"><td class="memItemLeft" align="right" valign="top"><a id="acc70521bf15377d2367f1a0240a6284e" name="acc70521bf15377d2367f1a0240a6284e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventNotifyVisitor</b> (const <a class="el" href="classatom_1_1visitor_1_1_event_notify_visitor.html">EventNotifyVisitor</a> &amp;)=delete</td></tr>
+<tr class="separator:acc70521bf15377d2367f1a0240a6284e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af374afa10ca755383c4d69e229914f3c"><td class="memItemLeft" align="right" valign="top"><a id="af374afa10ca755383c4d69e229914f3c" name="af374afa10ca755383c4d69e229914f3c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventNotifyVisitor</b> (<a class="el" href="classatom_1_1visitor_1_1_event_notify_visitor.html">EventNotifyVisitor</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:af374afa10ca755383c4d69e229914f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f47ba9544993174d29eb0afc24be5a3"><td class="memItemLeft" align="right" valign="top"><a id="a8f47ba9544993174d29eb0afc24be5a3" name="a8f47ba9544993174d29eb0afc24be5a3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventNotifyVisitor</b> (E &amp;&amp;event)</td></tr>
+<tr class="separator:a8f47ba9544993174d29eb0afc24be5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a1ad431a62f9c50fefa2cb7e2c1d62"><td class="memItemLeft" align="right" valign="top"><a id="ac5a1ad431a62f9c50fefa2cb7e2c1d62" name="ac5a1ad431a62f9c50fefa2cb7e2c1d62"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventNotifyVisitor</b> (const E &amp;event)</td></tr>
+<tr class="separator:ac5a1ad431a62f9c50fefa2cb7e2c1d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81148f99494a18a254eccb9046a56473"><td class="memTemplParams" colspan="2"><a id="a81148f99494a18a254eccb9046a56473" name="a81148f99494a18a254eccb9046a56473"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a81148f99494a18a254eccb9046a56473"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator()</b> (const T &amp;t)</td></tr>
+<tr class="separator:a81148f99494a18a254eccb9046a56473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>atom/engine/<a class="el" href="feed__engine_8hpp_source.html">feed_engine.hpp</a></li>
+<li>atom/basic/visitor/<a class="el" href="event__notify_8hpp_source.html">event_notify.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

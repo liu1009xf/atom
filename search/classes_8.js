@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notify_5ffeed_0',['notify_feed',['../structatom_1_1base_1_1notify__feed.html',1,'atom::base']]]
+  ['quote_0',['Quote',['../classatom_1_1basic_1_1detail_1_1_quote.html',1,'atom::basic::detail']]]
 ];

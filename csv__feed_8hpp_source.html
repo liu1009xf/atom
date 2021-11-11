@@ -103,40 +103,41 @@ $(function() {
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        O observers_;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> V&gt;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">void</span> feed_impl(<span class="keyword">const</span> V&amp; contract,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">void</span> feed_impl(<span class="keyword">const</span> V&amp; symbol,</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::string_view filePath,</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            std::string_view dtFormat)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            csv::CSVReader reader(filePath);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; row : reader) { <span class="comment">// Input iterator</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 1;i &lt; ks.size();++i)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                     = </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <a class="code hl_class" href="classatom_1_1basic_1_1detail_1_1_two_way_quote_builder.html">atom::TwoWayQuoteBuilder&lt;double, int&gt;</a> twqb;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <span class="keyword">using</span> v = <span class="keyword">decltype</span>(twqb)::value_type;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="keyword">using</span> q = <span class="keyword">decltype</span>(twqb)::qty_type;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keyword">auto</span> twq= twqb.bidPrice(row[1].get&lt;v&gt;())</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                            .bidQty(row[2].get&lt;q&gt;())</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                            .askPrice(row[3].get&lt;v&gt;())</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                            .askQty(row[4].get&lt;q&gt;());</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <a class="code hl_class" href="classatom_1_1event_1_1detail_1_1_tick_event.html">atom::TickEvent&lt;atom::TwoWayQuoteBuilder&lt;double, int&gt;</a>&gt; t(row[0].get(), twq);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; o : observers_)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    <span class="keywordflow">if</span> (contract == atom::variant::get_symbol(o))</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                        atom::variant::get_notified(td)(o);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                std::cout &lt;&lt; row[<span class="stringliteral">&quot;date&quot;</span>].get&lt;std::string&gt;() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    };</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>} <span class="comment">// namespace atom::datafeed</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <a class="code hl_class" href="classatom_1_1basic_1_1detail_1_1_two_way_quote_builder.html">atom::TwoWayQuoteBuilder&lt;double, int&gt;</a> twqb;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                <span class="keyword">using</span> v = <span class="keyword">decltype</span>(twqb)::value_type;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keyword">using</span> q = <span class="keyword">decltype</span>(twqb)::qty_type;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keyword">auto</span> twq= twqb.bidPrice(row[1].get&lt;v&gt;())</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                            .bidQty(row[2].get&lt;q&gt;())</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                            .askPrice(row[3].get&lt;v&gt;())</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                            .askQty(row[4].get&lt;q&gt;());</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <a class="code hl_class" href="classatom_1_1event_1_1detail_1_1_tick_event.html">atom::TickEvent&lt;atom::TwoWayQuoteBuilder&lt;double, int&gt;</a>&gt; t(row[0].get(), twq);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <a class="code hl_class" href="classatom_1_1visitor_1_1_event_notify_visitor.html">atom::EventNotifyVisitor</a> eventNotify(t);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; o : observers_)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    <a class="code hl_class" href="classatom_1_1visitor_1_1_get_symbol_visitor.html">atom::GetSymbolVisitor</a> getSymbol(symbol);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                    <span class="keywordflow">if</span> (std::visit(getSymbol, o))</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                        std::visit(eventNotify, o);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    };</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>} <span class="comment">// namespace atom::datafeed</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span></div>
 <div class="ttc" id="aclassatom_1_1basic_1_1detail_1_1_two_way_quote_builder_html"><div class="ttname"><a href="classatom_1_1basic_1_1detail_1_1_two_way_quote_builder.html">atom::basic::detail::TwoWayQuoteBuilder</a></div><div class="ttdef"><b>Definition:</b> quote.hpp:101</div></div>
 <div class="ttc" id="aclassatom_1_1datafeed_1_1_c_s_v_general_feed_html"><div class="ttname"><a href="classatom_1_1datafeed_1_1_c_s_v_general_feed.html">atom::datafeed::CSVGeneralFeed</a></div><div class="ttdef"><b>Definition:</b> csv_feed.hpp:17</div></div>
 <div class="ttc" id="aclassatom_1_1event_1_1detail_1_1_tick_event_html"><div class="ttname"><a href="classatom_1_1event_1_1detail_1_1_tick_event.html">atom::event::detail::TickEvent</a></div><div class="ttdoc">Tick Data contains time and data of type map&lt;string, T&gt;</div><div class="ttdef"><b>Definition:</b> tick_event.hpp:33</div></div>
+<div class="ttc" id="aclassatom_1_1visitor_1_1_event_notify_visitor_html"><div class="ttname"><a href="classatom_1_1visitor_1_1_event_notify_visitor.html">atom::visitor::EventNotifyVisitor</a></div><div class="ttdef"><b>Definition:</b> event_notify.hpp:8</div></div>
+<div class="ttc" id="aclassatom_1_1visitor_1_1_get_symbol_visitor_html"><div class="ttname"><a href="classatom_1_1visitor_1_1_get_symbol_visitor.html">atom::visitor::GetSymbolVisitor</a></div><div class="ttdef"><b>Definition:</b> get_symbol.hpp:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

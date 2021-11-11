@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Atom: atom::mpl::replace_value_type&lt; C, V &gt; Struct Template Reference</title>
+<title>Atom: atom::agent::Trader_&lt; S, LP, AF, OO &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,15 +62,33 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>mpl</b></li><li class="navelem"><a class="el" href="structatom_1_1mpl_1_1replace__value__type.html">replace_value_type</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceatom.html">atom</a></li><li class="navelem"><b>agent</b></li><li class="navelem"><a class="el" href="classatom_1_1agent_1_1_trader__.html">Trader_</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">atom::mpl::replace_value_type&lt; C, V &gt; Struct Template Reference</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classatom_1_1agent_1_1_trader__-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">atom::agent::Trader_&lt; S, LP, AF, OO &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>atom/basic/mpl/<a class="el" href="basic_2mpl_2container_8hpp_source.html">container.hpp</a></li>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aaacc378cbe5c917f3c19e3d0e9a67e1b"><td class="memItemLeft" align="right" valign="top"><a id="aaacc378cbe5c917f3c19e3d0e9a67e1b" name="aaacc378cbe5c917f3c19e3d0e9a67e1b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Trader_</b> (const S &amp;strategy)</td></tr>
+<tr class="separator:aaacc378cbe5c917f3c19e3d0e9a67e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df52ec66be34a001aaaf0e95c55aa11"><td class="memTemplParams" colspan="2"><a id="a5df52ec66be34a001aaaf0e95c55aa11" name="a5df52ec66be34a001aaaf0e95c55aa11"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5df52ec66be34a001aaaf0e95c55aa11"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>process</b> (T &amp;&amp;event) const</td></tr>
+<tr class="separator:a5df52ec66be34a001aaaf0e95c55aa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390171514532703c4d02ae5c13b674c2"><td class="memTemplParams" colspan="2"><a id="a390171514532703c4d02ae5c13b674c2" name="a390171514532703c4d02ae5c13b674c2"></a>
+template&lt;typename O , std::enable_if_t&lt; std::is_convertible_v&lt; O, OO &gt;, std::nullptr_t &gt;  = nullptr&gt; </td></tr>
+<tr class="memitem:a390171514532703c4d02ae5c13b674c2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>addOrderObserver</b> (O &amp;&amp;observer) const</td></tr>
+<tr class="separator:a390171514532703c4d02ae5c13b674c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>atom/trader/<a class="el" href="trader_8hpp_source.html">trader.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
