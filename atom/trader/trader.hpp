@@ -1,6 +1,8 @@
 #ifndef ATOM_AGENT_TRADER_TRADER_HPP
 #define ATOM_AGENT_TRADER_TRADER_HPP
 
+#include <optional>
+
 #include "atom/event/operator.hpp"
 #include "atom/validator/trival.hpp"
 #include "atom/authoriser/trival.hpp"
