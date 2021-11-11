@@ -4,13 +4,17 @@
 
 namespace atom::mpl
 {
+    //-------------------------------------------------------------------------
+    // replace container value_type
     template<typename C, typename V>
-    struct replace_value_type {};
+    struct replace_value_type {
+    };
 
     template<typename C, typename V>
     struct replace_value_type<std::vector<C>, V> {
         using type = std::vector<V>;
     };
+    
 }
 
 #endif //!ATOM_BASIC_MPL_CONTAINER_HPP

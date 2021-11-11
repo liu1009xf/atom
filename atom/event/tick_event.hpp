@@ -82,7 +82,7 @@ namespace atom::event::detail
         
     private:
         atom::util::timePoint datetime_;
-        T data_;
+        T data_;  
     };
     #include "atom/event/impl/tick_event.ipp"
 } // namespace atom::component

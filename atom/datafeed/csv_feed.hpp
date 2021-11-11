@@ -32,16 +32,12 @@ namespace atom::datafeed
         O observers_;
 
         template<typename V>
-        void feed_impl(const V& contract,
+        void feed_impl(const V& symbol,
             std::string_view filePath,
             std::string_view dtFormat) const
         {
             csv::CSVReader reader(filePath);
             for (auto& row : reader) { // Input iterator
-                for (auto i = 1;i < ks.size();++i)
-                {
-                     = 
-                }
                 atom::TwoWayQuoteBuilder<double, int> twqb;
                 using v = decltype(twqb)::value_type;
                 using q = decltype(twqb)::qty_type;
@@ -50,12 +46,15 @@ namespace atom::datafeed
                             .askPrice(row[3].get<v>())
                             .askQty(row[4].get<q>());
                 atom::TickEvent<atom::TwoWayQuoteBuilder<double, int>> t(row[0].get(), twq);
+                atom::EventNotifyVisitor eventNotify(t);
                 for (auto& o : observers_)
-                    if (contract == atom::variant::get_symbol(o))
+                {
+                    atom::GetSymbolVisitor getSymbol(symbol);
+                    if (std::visit(getSymbol, o))
                     {
-                        atom::variant::get_notified(td)(o);
+                        std::visit(eventNotify, o);
                     }
-                std::cout << row["date"].get<std::string>() << ","
+                }
             }
         }
     };
