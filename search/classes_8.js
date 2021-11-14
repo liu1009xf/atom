@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quote_0',['Quote',['../classatom_1_1basic_1_1detail_1_1_quote.html',1,'atom::basic::detail']]]
+  ['ordersignal_0',['OrderSignal',['../classatom_1_1detail_1_1_order_signal.html',1,'atom::detail']]]
 ];

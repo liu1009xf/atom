@@ -5,5 +5,7 @@ var searchData=
   ['contains_2',['contains',['../structatom_1_1traits_1_1detail_1_1contains.html',1,'atom::traits::detail']]],
   ['contains_3c_20std_3a_3aset_3c_20t_20_3e_2c_20t_20_3e_3',['contains&lt; std::set&lt; T &gt;, T &gt;',['../structatom_1_1traits_1_1detail_1_1contains_3_01std_1_1set_3_01_t_01_4_00_01_t_01_4.html',1,'atom::traits::detail']]],
   ['contains_3c_20std_3a_3avector_3c_20t_20_3e_2c_20t_20_3e_4',['contains&lt; std::vector&lt; T &gt;, T &gt;',['../structatom_1_1traits_1_1detail_1_1contains_3_01std_1_1vector_3_01_t_01_4_00_01_t_01_4.html',1,'atom::traits::detail']]],
-  ['csvgeneralfeed_5',['CSVGeneralFeed',['../classatom_1_1datafeed_1_1_c_s_v_general_feed.html',1,'atom::datafeed']]]
+  ['contract_5',['Contract',['../classatom_1_1detail_1_1_contract.html',1,'atom::detail']]],
+  ['contract_5fmultiplier_6',['contract_multiplier',['../structatom_1_1detail_1_1contract__multiplier.html',1,'atom::detail']]],
+  ['contract_5fmultiplier_3c_20std_3a_3astring_20_3e_7',['contract_multiplier&lt; std::string &gt;',['../structatom_1_1detail_1_1contract__multiplier_3_01std_1_1string_01_4.html',1,'atom::detail']]]
 ];
