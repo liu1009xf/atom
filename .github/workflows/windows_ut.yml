@@ -1,0 +1,53 @@
+name: Unit Test(Windows)
+
+on: 
+  push:
+  pull_request:
+    branches: [ main ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Conan
+      id: conan
+      uses: turtlebrowser/get-conan@main
+
+    - name: Create Build Environment
+      run: cmake -E make_directory ${{runner.workspace}}/_build
+
+    - name: New Conan Profile
+      working-directory: ${{runner.workspace}}/_build
+      run: conan profile new default --detect
+      shell: bash
+
+    - name: Set conan
+      working-directory: ${{runner.workspace}}/_build
+      run: conan profile update settings.compiler="Visual Studio" default
+      shell: bash
+
+    - name: Install Test Dependencies
+      working-directory: ${{runner.workspace}}/_build
+      run: conan install ../atom/ --build missing
+      shell: bash
+
+    - name: Configure CMake
+      shell: bash
+      working-directory: ${{runner.workspace}}/_build
+      run: cmake $GITHUB_WORKSPACE
+
+    - name: Build
+      working-directory: ${{runner.workspace}}/_build
+      shell: bash
+      run: cmake --build . --config $BUILD_TYPE -j 8
+
+    - name: Unit Test
+      working-directory: ${{runner.workspace}}/_build
+      shell: bash
+      run: ctest -R atom_test -C $BUILD_TYPE --verbose --timeout 600
