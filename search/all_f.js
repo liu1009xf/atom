@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['value_0',['value',['../classatom_1_1basic_1_1detail_1_1_quote.html#ad266e70f0e5e672267ae326471db64f7',1,'atom::basic::detail::Quote']]],
-  ['variant_5fappend_5fhelper_1',['variant_append_helper',['../structatom_1_1mpl_1_1detail_1_1variant__append__helper.html',1,'atom::mpl::detail']]],
-  ['variant_5fappend_5fhelper_3c_20std_3a_3avariant_3c_20a_2e_2e_2e_20_3e_2c_20t_20_3e_2',['variant_append_helper&lt; std::variant&lt; A... &gt;, T &gt;',['../structatom_1_1mpl_1_1detail_1_1variant__append__helper_3_01std_1_1variant_3_01_a_8_8_8_01_4_00_01_t_01_4.html',1,'atom::mpl::detail']]],
-  ['variant_5fcast_5fproxy_3',['variant_cast_proxy',['../structatom_1_1mpl_1_1detail_1_1variant__cast__proxy.html',1,'atom::mpl::detail']]]
+  ['tick_5fevent_2ehpp_0',['tick_event.hpp',['../tick__event_8hpp.html',1,'']]],
+  ['tickevent_1',['TickEvent',['../classatom_1_1event_1_1detail_1_1_tick_event.html',1,'atom::event::detail::TickEvent&lt; T &gt;'],['../classatom_1_1event_1_1detail_1_1_tick_event.html#a3033a8ccba408ac6a6e10dfaffb69509',1,'atom::event::detail::TickEvent::TickEvent()=default'],['../classatom_1_1event_1_1detail_1_1_tick_event.html#ac3c22dcc49493072d911ec0d415a1556',1,'atom::event::detail::TickEvent::TickEvent(const std::string &amp;datetime, const std::string &amp;format, const T &amp;data)'],['../classatom_1_1event_1_1detail_1_1_tick_event.html#a7fcc5e3d329c296f7f50d1f0afc88a79',1,'atom::event::detail::TickEvent::TickEvent(const std::string &amp;datetime, const T &amp;data)'],['../classatom_1_1event_1_1detail_1_1_tick_event.html#aab301404b7f437c7c924d31b6efbc5d2',1,'atom::event::detail::TickEvent::TickEvent(const atom::util::timePoint &amp;datetime, const T &amp;data)']]],
+  ['todo_20list_2',['Todo List',['../todo.html',1,'']]],
+  ['trader_3',['Trader',['../classatom_1_1detail_1_1_trader.html',1,'atom::detail']]],
+  ['trader_5f_4',['Trader_',['../classatom_1_1detail_1_1_trader__.html',1,'atom::detail']]],
+  ['trivialauthoriser_5',['TrivialAuthoriser',['../structatom_1_1detail_1_1_trivial_authoriser.html',1,'atom::detail']]],
+  ['trivialvalidator_6',['TrivialValidator',['../structatom_1_1detail_1_1_trivial_validator.html',1,'atom::detail']]],
+  ['twowayquote_7',['TwoWayQuote',['../classatom_1_1basic_1_1detail_1_1_two_way_quote.html',1,'atom::basic::detail']]],
+  ['twowayquotebuilder_8',['TwoWayQuoteBuilder',['../classatom_1_1basic_1_1detail_1_1_two_way_quote_builder.html',1,'atom::basic::detail']]]
 ];

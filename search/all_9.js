@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ordersignal_0',['OrderSignal',['../classatom_1_1detail_1_1_order_signal.html',1,'atom::detail']]]
+  ['notify_5ffeed_0',['notify_feed',['../structatom_1_1base_1_1notify__feed.html',1,'atom::base']]]
 ];
