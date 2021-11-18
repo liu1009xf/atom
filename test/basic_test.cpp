@@ -110,13 +110,15 @@ TEST_F(PositionTest, unrealisedProfit_sanity) {
 
 struct ContractTest : public ::testing::Test
 {
+    using WithMetaQuote = atom::WithMeta<atom::Contract<>, std::map<std::string, std::string>>;
     ContractTest()
         : p1(atom::Contract<>(std::string("AMD"), std::string("Stock"), 1)),
-        p2(atom::Contract<>(std::string("AMD"), std::string("Stock"), 1, std::map<std::string, std::string>{ { "exchange", "Nasdaq" }}))
+        p2(WithMetaQuote(std::map<std::string, std::string>{{ "exchange", "Nasdaq" }},
+            std::string("AMD"), std::string("Stock"), 1))
     {
     }
     atom::Contract<> p1;
-    atom::Contract<> p2;
+    WithMetaQuote p2;
 };
 
 TEST_F(ContractTest, sym_sanity)
@@ -135,4 +137,9 @@ TEST_F(ContractTest, multiplier_sanity)
 {
     EXPECT_EQ(p1.multiplier(), 1);
     EXPECT_EQ(p2.multiplier(), 1);
+}
+
+TEST_F(ContractTest, meta_sanity)
+{
+    EXPECT_EQ(p2.meta().at("exchange"), "Nasdaq");
 }

@@ -13,6 +13,8 @@
 #include "atom/basic/position/position.hpp"
 #include "atom/basic/contract/contract.hpp"
 
+#include "atom/basic/decorator/meta_dec.hpp"
+
 namespace atom {
     template <typename V = double, typename Q = unsigned long int>
     using Quote = basic::detail::Quote<V, Q>;
@@ -28,8 +30,8 @@ namespace atom {
         typename Q = double, typename P = double>
     using Position = detail::Position<C, S, Q, P>;
 
-    template<typename S=std::string, typename T=std::string, typename M=int, typename Y=std::map<std::string, std::string>>
-    using Contract = detail::Contract<S, T, M, Y>;
+    template<typename S=std::string, typename T=std::string, typename M=int>
+    using Contract = detail::Contract<S, T, M>;
 
     //--------------------------------------------------------------------------
     // Visitor
@@ -38,6 +40,12 @@ namespace atom {
     using EventNotifyVisitor = visitor::EventNotifyVisitor<E>;
     // template<typename E>
     // using GetSymbolVisitor = atom::visitor::GetSymbolVisitor<E>;
+
+    //--------------------------------------------------------------------------
+    // Decorator
+    //
+    template<typename T, typename M = std::map<std::string, std::string>>
+    using WithMeta = detail::WithMeta<T, M>;
 }
 
 #endif //!ATOM_BASIC_HPP
