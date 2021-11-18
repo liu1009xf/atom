@@ -13,7 +13,7 @@
 #include "atom/basic/position/position.hpp"
 #include "atom/basic/contract/contract.hpp"
 
-#include "atom/basic/decorator/meta_dec.hpp"
+#include "atom/basic/decorator/with_meta.hpp"
 
 namespace atom {
     template <typename V = double, typename Q = unsigned long int>
