@@ -10,7 +10,7 @@ add_library(${LIBRARY_NAME}
 add_library(${PROJECT_NAME}::${LIBRARY_NAME} ALIAS ${LIBRARY_NAME})
 
 # C++17
-target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_17)
+target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
 
 # Add definitions for targets
 # Values:

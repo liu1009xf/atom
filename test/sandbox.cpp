@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <iostream>
+#include <chrono>
 
 #include "atom/event.hpp"
 #include "atom/basic.hpp"

@@ -4,6 +4,8 @@
 
 // #include "atom/event.hpp"
 #include "atom/basic.hpp"
+#include "atom/basic/operator.hpp"
+
 // #include <atom/basic/datetime/timepoint.hpp>
 
 // TEST(Component, tick_data) {
@@ -76,49 +78,79 @@ TEST(Basic_QuoteBuilderTest, AskOnly)
 TEST(Basic_PositionTest, Instantiate)
 {
     atom::Position<>();
-    atom::Position<>(std::string("AMD"), std::string("B"), 100.0, 133.0);
+    atom::Position<>(std::string("B"), 100.0, 133.0);
 }
 
 struct PositionTest : public ::testing::Test
 {
     PositionTest()
-        : p1(atom::Position<>(std::string("AMD"), std::string("B"), 100.0, 133.0))
+        : p1(atom::Position<>( std::string("B"), 100.0, 100.0)),
+        p2(atom::Position<>(std::string("S"), 100.0, 120.0)),
+        p3(atom::Position<>(std::string("B"), 100.0, 100.0)),
+        p4(atom::Position<>(std::string("B"), 200.0, 400.0))
     {
     }
     atom::Position<> p1;
-
+    atom::Position<> p2;
+    atom::Position<> p3;
+    atom::Position<> p4;
 };
 
 TEST_F(PositionTest, qty_sanity) {
     EXPECT_EQ(p1.qty(), 100.0);
 }
 TEST_F(PositionTest, price_sanity) {
-    EXPECT_EQ(p1.price(), 133.0);
+    EXPECT_EQ(p1.price(), 100.0);
+}
+TEST_F(PositionTest, position_sum_case_1) {
+    EXPECT_EQ(p1 + p3, atom::Position<>(std::string("B"), 200.0, 100.0));
 }
 
-TEST_F(PositionTest, value_sanity) {
-    EXPECT_EQ(p1.value(), 13300.0);
+TEST_F(PositionTest, position_sum_case_2) {
+    EXPECT_EQ(p1 + p2, atom::Position<>(std::string("B"), 0, 100.0));
 }
 
-TEST_F(PositionTest, marketvalue_sanity) {
-    EXPECT_EQ(p1.marketValue(100), 10000.0);
+TEST_F(PositionTest, position_sum_case_3) {
+    EXPECT_EQ(p1 + p4, atom::Position<>(std::string("B"), 300, 300));
 }
 
-TEST_F(PositionTest, unrealisedProfit_sanity) {
-    EXPECT_EQ(p1.unrealisedProfit(100), -3300.0);
-}
+// TEST_F(PositionTest, value_sanity) {
+//     EXPECT_EQ(p1.value(), 13300.0);
+// }
+
+// TEST_F(PositionTest, marketvalue_sanity) {
+//     EXPECT_EQ(p1.marketValue(100), 10000.0);
+// }
+
+// TEST_F(PositionTest, unrealisedProfit_sanity) {
+//     EXPECT_EQ(p1.unrealisedProfit(100), -3300.0);
+// }
+
+// TEST_F(PositionTest, combinable_sanity) {
+//     bool b1 = atom::op::combinable<decltype(p1), decltype(p2)>::apply(p1, p2);
+//     bool b2 = atom::op::combinable<decltype(p2), decltype(p1)>::apply(p2, p1);
+//     bool b3 = atom::op::combinable<decltype(p3), decltype(p1)>::apply(p3, p1);
+//     bool b4 = atom::op::combinable<decltype(p1), decltype(p3)>::apply(p1, p3);
+
+//     EXPECT_TRUE(b1);
+//     EXPECT_TRUE(b2);
+//     EXPECT_FALSE(b3);
+//     EXPECT_FALSE(b4);
+// }
 
 struct ContractTest : public ::testing::Test
 {
     using WithMetaQuote = atom::WithMeta<atom::Contract<>, std::map<std::string, std::string>>;
     ContractTest()
-        : p1(atom::Contract<>(std::string("AMD"), std::string("Stock"), 1)),
+        : p1(atom::Contract<>(std::string("AMD"), std::string("Stock"), 1, "USD")),
         p2(WithMetaQuote(std::map<std::string, std::string>{{ "exchange", "Nasdaq" }},
-            std::string("AMD"), std::string("Stock"), 1))
+            std::string("AMD"), std::string("Stock"), 1, "USD")),
+        p3(atom::Contract<>(std::string("AMD"), std::string("Stock"), 1, "USD"))
     {
     }
     atom::Contract<> p1;
     WithMetaQuote p2;
+    atom::Contract<> p3;
 };
 
 TEST_F(ContractTest, sym_sanity)
@@ -139,7 +171,18 @@ TEST_F(ContractTest, multiplier_sanity)
     EXPECT_EQ(p2.multiplier(), 1);
 }
 
+TEST_F(ContractTest, denominated_sanity)
+{
+    EXPECT_EQ(p1.denominated(), "USD");
+    EXPECT_EQ(p2.denominated(), "USD");
+}
+
 TEST_F(ContractTest, meta_sanity)
 {
     EXPECT_EQ(p2.meta().at("exchange"), "Nasdaq");
+}
+
+TEST_F(ContractTest, equality_sanity)
+{
+    EXPECT_EQ(p1, p3);
 }

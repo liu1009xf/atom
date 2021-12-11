@@ -11,6 +11,7 @@
 #include "atom/basic/visitor/get_symbol.hpp"
 #include "atom/basic/signal/order_signal.hpp"
 #include "atom/basic/position/position.hpp"
+#include "atom/basic/portfolio/portfolio.hpp"
 #include "atom/basic/contract/contract.hpp"
 
 #include "atom/basic/decorator/with_meta.hpp"
@@ -26,12 +27,14 @@ namespace atom {
     
     using OrderSignal = detail::OrderSignal;
 
-    template<typename C = std::string, typename S = std::string,
-        typename Q = double, typename P = double>
-    using Position = detail::Position<C, S, Q, P>;
+    template<typename S = std::string,typename Q = double, typename P = double>
+    using Position = detail::Position<S, Q, P>;
 
-    template<typename S=std::string, typename T=std::string, typename M=int>
-    using Contract = detail::Contract<S, T, M>;
+    template<typename P = Position<>>
+    using Portfolio = detail::Portfolio<P>;
+
+    template<typename S=std::string, typename T=std::string, typename M=int, typename C=std::string>
+    using Contract = detail::Contract<S, T, M, C>;
 
     //--------------------------------------------------------------------------
     // Visitor
