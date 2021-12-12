@@ -2,7 +2,7 @@
 #define ATOM_BASIC_DECORATOR_WITH_META
 
 #include "atom/basic/operator/value_at.hpp"
-#include "atom/basic/mpl/helper.hpp"
+#include "atom/mpl/helper.hpp"
 
 namespace atom::detail {
 

@@ -76,13 +76,13 @@ TEST(Basic_QuoteBuilderTest, AskOnly)
 TEST(Basic_PositionTest, Instantiate)
 {
     atom::Position<>();
-    atom::Position<>(std::string("AMD"), std::string("B"), 100.0, 133.0);
+    atom::Position<>(std::string("B"), 100.0, 133.0);
 }
 
 struct PositionTest : public ::testing::Test
 {
     PositionTest()
-        : p1(atom::Position<>(std::string("AMD"), std::string("B"), 100.0, 133.0))
+        : p1(atom::Position<>(std::string("B"), 100.0, 133.0))
     {
     }
     atom::Position<> p1;
@@ -94,18 +94,6 @@ TEST_F(PositionTest, qty_sanity) {
 }
 TEST_F(PositionTest, price_sanity) {
     EXPECT_EQ(p1.price(), 133.0);
-}
-
-TEST_F(PositionTest, value_sanity) {
-    EXPECT_EQ(p1.value(), 13300.0);
-}
-
-TEST_F(PositionTest, marketvalue_sanity) {
-    EXPECT_EQ(p1.marketValue(100), 10000.0);
-}
-
-TEST_F(PositionTest, unrealisedProfit_sanity) {
-    EXPECT_EQ(p1.unrealisedProfit(100), -3300.0);
 }
 
 struct ContractTest : public ::testing::Test
@@ -142,4 +130,44 @@ TEST_F(ContractTest, multiplier_sanity)
 TEST_F(ContractTest, meta_sanity)
 {
     EXPECT_EQ(p2.meta().at("exchange"), "Nasdaq");
+}
+
+struct SidedPositionTest : public ::testing::Test
+{
+    SidedPositionTest()
+        : lp(atom::LongPosition<>(1000, 100)),
+        sp(atom::ShortPosition<>(1000, 100))
+    {
+    }
+    atom::LongPosition<> lp;
+    atom::ShortPosition<> sp;
+};
+
+TEST_F(SidedPositionTest, longPositionqty)
+{
+    EXPECT_EQ(lp.qty(), 1000);
+}
+
+TEST_F(SidedPositionTest, longPositionprice)
+{
+    EXPECT_EQ(lp.price(), 100);
+}
+
+TEST_F(SidedPositionTest, shortPositionqty)
+{
+    EXPECT_EQ(sp.qty(), 1000);
+}
+
+TEST_F(SidedPositionTest, shortPositionprice)
+{
+    EXPECT_EQ(sp.price(), 100);
+}
+
+TEST(SidedPositionTest1, operator)
+{
+    atom::LongPosition<> lp1(1000, 100);
+    atom::LongPosition<> lp2(2000, 200);
+    auto lp3 = lp1 + lp2;
+    EXPECT_EQ(lp3.price(), (100*1000+200*2000)/3000.0);
+    EXPECT_EQ(lp3.qty(), 3000);
 }

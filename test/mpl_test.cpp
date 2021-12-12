@@ -2,8 +2,7 @@
 #include <iostream>
 #include <atom/atom.hpp>
 
-#include "atom/basic/mpl/container.hpp"
-#include "atom/basic/mpl/variant.hpp"
+#include "atom/mpl.hpp"
 
 TEST(MPL_TEST, replace_value_type) {
     constexpr bool s = std::is_same_v<
@@ -46,4 +45,36 @@ TEST(MPL_TEST, variant_cast) {
     t a1 = atom::mpl::variant_cast(a);
     std::visit(Print(), a1);
     
+}
+
+TEST(MPL_TEST, all_test1) {
+    constexpr bool is_int = std::is_same_v<int, int>;
+    constexpr bool is_double = std::is_same_v<double, double>;
+    constexpr bool is_long = std::is_same_v<long, long>;
+    constexpr bool result = atom::mpl::all<is_double, is_int, is_long>::value;
+    EXPECT_TRUE(result);
+}
+
+TEST(MPL_TEST, all_test2) {
+    constexpr bool is_int = std::is_same_v<double, int>;
+    constexpr bool is_double = std::is_same_v<double, double>;
+    constexpr bool is_long = std::is_same_v<long, long>;
+    constexpr bool result = atom::mpl::all<is_double, is_int, is_long>::value;
+    EXPECT_FALSE(result);
+}
+
+TEST(MPL_TEST, any_test1) {
+    constexpr bool is_int = std::is_same_v<double, int>;
+    constexpr bool is_double = std::is_same_v<double, double>;
+    constexpr bool is_long = std::is_same_v<long, long>;
+    constexpr bool result = atom::mpl::any<is_double, is_int, is_long>::value;
+    EXPECT_TRUE(result);
+}
+
+TEST(MPL_TEST, any_test2) {
+    constexpr bool is_int = std::is_same_v<double, int>;
+    constexpr bool is_double = std::is_same_v<int, double>;
+    constexpr bool is_long = std::is_same_v<double, long>;
+    constexpr bool result = atom::mpl::any<is_double, is_int, is_long>::value;
+    EXPECT_FALSE(result);
 }

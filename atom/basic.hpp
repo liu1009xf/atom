@@ -4,6 +4,14 @@
 #include <optional>
 #include <type_traits>
 
+//--------------------------------------------------------------------------
+// Enums
+//
+#include "atom/basic/enums.hpp"
+namespace atom::enums {
+    using Side = detail::Side;
+}
+
 #include "atom/basic/type_traits.hpp"
 
 #include "atom/basic/container/quote.hpp"
@@ -26,11 +34,24 @@ namespace atom {
     
     using OrderSignal = detail::OrderSignal;
 
-    template<typename C = std::string, typename S = std::string,
-        typename Q = double, typename P = double>
-    using Position = detail::Position<C, S, Q, P>;
+    template<typename S = std::string,
+        typename Q = double,
+        typename P = double>
+    using Position = detail::Position<S, Q, P>;
 
-    template<typename S=std::string, typename T=std::string, typename M=int>
+    template<
+        typename Q = double,
+        typename P = double
+    >
+    using LongPosition = detail::SidedPosition<enums::Side::BUY, Q, P>;
+    
+    template<
+        typename Q = double,
+        typename P = double
+    >
+    using ShortPosition = detail::SidedPosition<enums::Side::BUY, Q, P>;
+
+    template<typename S = std::string, typename T = std::string, typename M = int>
     using Contract = detail::Contract<S, T, M>;
 
     //--------------------------------------------------------------------------

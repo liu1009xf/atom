@@ -2,10 +2,10 @@
 #define ATOM_BASIC_VARIANT_LIST_BUILDER_HPP
 
 #include "atom/basic.hpp"
-#include "atom/basic/mpl/variant.hpp"
+#include "atom/mpl/variant.hpp"
 
-#include "atom/basic/mpl/container.hpp"
-#include "atom/basic/mpl/variant.hpp"
+#include "atom/mpl/container.hpp"
+#include "atom/mpl/variant.hpp"
 
 
 namespace atom::variant
